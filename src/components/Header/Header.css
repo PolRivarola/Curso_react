@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root {
+    --main-btn-color: #CDA987;
+    --main-font-family: 'Montserrat', sans-serif;
+  }
+
+  body{
+      font-family: var(--main-font-family);
+  }
+
+/* Clases y IDs */
+
+
+#headNav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 1em auto;
+}
+
+#contacto{
+    background-color: var(--main-btn-color);
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+ul{
+    display: flex;
+    justify-content:space-between ;
+    width: 100%;
+  }
+  
+  
+  li{
+      list-style: none;
+      justify-content:space-between  ;
+      font-family: var(--main-font-family);
+      font-weight: 400;
+      padding: .5em 1em;
+      font-size: 15px;
+      margin-left: 2em;
+  }
+
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    text-decoration: underline black;
+}
