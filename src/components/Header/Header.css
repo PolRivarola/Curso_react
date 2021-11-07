@@ -17,7 +17,7 @@
 /* Clases y IDs */
 
 
-#headNav{
+.headNav{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,16 +25,25 @@
     margin: 1em auto;
 }
 
-#contacto{
-    background-color: var(--main-btn-color);
-    border-radius: 10px;
+.contacto{
+    
     font-weight: 600;
+}
+
+.carrito{
+    width: 30px;
+    background-color: var(--main-btn-color);
+    border-radius: 25px;
+    
+
+    
 }
 
 ul{
     display: flex;
     justify-content:space-between ;
     width: 100%;
+    align-items: center;
   }
   
   

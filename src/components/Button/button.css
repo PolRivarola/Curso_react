@@ -1,0 +1,19 @@
+:root {
+    --main-btn-color: #CDA987;
+    --main-font-family: 'Montserrat', sans-serif;
+  }
+.btnGeneric{
+    width: 10rem;
+    border-radius: 10px;
+    border:2px solid black;
+    height: 3em;
+    background-color: black;
+    color: var(--main-btn-color);
+    font-family: var(--main-font-family);
+    margin-top: 2em;
+}
+
+.btnGeneric:hover{
+    background-color: white;
+    color: black;
+}
