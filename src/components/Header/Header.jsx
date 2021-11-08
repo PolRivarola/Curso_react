@@ -1,5 +1,5 @@
+import CartWidget from '../CartWidget/CartWidget';
 import './Header.css';
-import carrito from '../../assets/img/carrito.png' 
 const Header = () => {
     return(
         
@@ -11,7 +11,7 @@ const Header = () => {
             <li><a href="">Servicios</a></li>
             <li><a href="">Catalogo</a></li>
             <li ><a href="">Contacto</a></li>
-            <li><img className="carrito" src={carrito} alt="" /></li>
+            <li><CartWidget/></li>
 
           </ul>
         </nav>

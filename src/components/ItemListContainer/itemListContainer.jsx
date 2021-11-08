@@ -6,7 +6,7 @@ const itemListContainer = (props) =>{
     return(
         <section className="ilc-wrap">
             <h2 className="greet">{props.greeting}</h2>
-            <Button txt="Estoy Listo!"/>
+            <Button styleBtn="btnGeneric"txt="Estoy Listo!"/>
         </section>
     )
 }

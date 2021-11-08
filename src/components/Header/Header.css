@@ -30,14 +30,7 @@
     font-weight: 600;
 }
 
-.carrito{
-    width: 30px;
-    background-color: var(--main-btn-color);
-    border-radius: 25px;
-    
 
-    
-}
 
 ul{
     display: flex;
