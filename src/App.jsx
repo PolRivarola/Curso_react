@@ -7,17 +7,10 @@ import ItemListContainer from './components/ItemListContainer/itemListContainer.
 
 
 const App = () => {
-
-  const[number,setNumber] = useState(0)
-  const onClick = ()=>{
-    setNumber(number + 1)
-  }
   return(
     <Fragment>
       <Header />
       <ItemListContainer greeting="Una nueva forma de estudiar"/>
-    <h3>{`Boton tiene el numero ${number}`}</h3>
-    <button onClick={onClick}>{number}</button>
     </Fragment> 
   )
 }
