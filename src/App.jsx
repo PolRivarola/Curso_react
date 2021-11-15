@@ -1,16 +1,28 @@
 
-import { Fragment, useState } from 'react';
+import { Fragment} from 'react';
 import './App.css';
 import Header from './components/Header/Header.jsx'
-import ItemListContainer from './components/ItemListContainer/itemListContainer.jsx'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
 
 
 
 const App = () => {
   return(
     <Fragment>
+      {/* <h1>Listos</h1>
+      {
+        products.map((product)=>{
+          return(
+            <div key={product.id}>
+              <h1>{product.name}</h1>
+              <p>{product.color}</p>
+            </div>
+          )
+        })
+      } */}
       <Header />
-      <ItemListContainer greeting="Una nueva forma de estudiar"/>
+      <ItemListContainer greeting="Buenas peliculas, mejores precios"/>
+      
     </Fragment> 
   )
 }

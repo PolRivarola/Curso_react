@@ -4,7 +4,7 @@ const Header = () => {
     return(
         
         <div className="headNav">
-        <h1>ECDE</h1>
+        <h1>CineLife</h1>
         <nav>
           <ul>
             <li><a href="">Nosotros</a></li>

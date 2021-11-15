@@ -8,13 +8,13 @@ const ItemCounter = (props) =>{
     const[number,setNumber] = useState(0)
   
     const inc = ()=>{
-        if (props.stock != 0 && number < props.stock){
+        if (props.stock !== 0 && number < props.stock){
             setNumber(number + 1)
         }
     }
 
     const dis = ()=>{
-        if (number != 0){
+        if (number !== 0){
             setNumber(number - 1)
         }
     }

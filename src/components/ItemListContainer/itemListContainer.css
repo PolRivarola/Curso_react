@@ -10,7 +10,7 @@
     justify-content: center;
     flex-flow: column;
     background-color: var(--main-btn-color);
-    height: 80vh;
+    height: 100vh;
 }
 
 .greet{
