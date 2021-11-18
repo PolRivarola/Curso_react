@@ -1,19 +1,26 @@
 
 .item-wrap{
-    justify-content: center;
+    justify-content: flex-start;
     display: flex;
     flex-flow: column;
     align-items: center;
     margin: 1em .5em 0;
-
+    background-color: black;
+    border-radius: 10px;
+    width: 120px;
+    
 }
 .item-wrap img{
     width: 100px;
-    height: 100px;
-    border-radius: 10px;
+    height: 125px;
+    border-radius: 20px;
+    margin-top: 1em;
+    
 }
 
-.item-wrap p{
+.nomYPrecio {
     font-weight: bold;
     text-align: center;
+    color: white;
+    margin-top: .5em;
 }

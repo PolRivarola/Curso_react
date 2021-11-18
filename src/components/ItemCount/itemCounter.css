@@ -24,13 +24,14 @@
 }
 .number{
     background-color: black;
-    width: 120%;
+    width: 100%;
     color: white;
     display: flex;
     justify-content: center;
     border-radius: 10px;
     position: relative;
     bottom: 8px;
+    outline: white 2px solid;
 }
 
 .btnItem{
@@ -49,3 +50,4 @@
     border-radius: 5px;
     
 }
+

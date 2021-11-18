@@ -2,6 +2,8 @@
 
 // const App = () => {
 
+import { Component } from "react/cjs/react.development";
+
 //     const[number,setNumber] = useState(0)
 //     const onClick = ()=>{
 //       setNumber(number + 1)
@@ -54,9 +56,89 @@
 //   })
 // }
 
-// then --> todo ok
-// catch --> no ok
-somethingWillHappen()
-  .then((response) => console.log(response))
-  .then(()=> console.log('Cerrar el modal'))
-  .catch((error)=> console.log(error))
+// // then --> todo ok
+// // catch --> no ok
+// somethingWillHappen()
+//   .then((response) => console.log(response))
+//   .then(()=> console.log('Cerrar el modal'))
+//   .catch((error)=> console.log(error))
+
+//CLASE API
+// {
+ 
+// import { Fragment, useEffect} from 'react';
+// import { useState } from 'react/cjs/react.development';
+// import './App.css';
+// import Header from './components/Header/Header.jsx'
+// import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
+
+
+
+// const App = () => {
+
+
+//   const [characters, setCharacters] = useState()
+//   const [isLoading,setIsLoading] = useState(false)
+
+//   const item = 
+//     [{
+//     name: 'Iphone x',
+//     color:'Clabk',
+//     id:'001',
+//     price:5000},
+//     {name: 'Iphone x',
+//     color:'Clabk',
+//     id:'001',
+//     price:5000}]
+
+  
+
+//     const traerItem = ()=> {
+//       return new Promise((resolve,reject)=>{
+//         setTimeout(() =>{
+//           resolve(item)
+
+//         },2000)
+//       })
+//     }
+
+
+//   useEffect(()=>{
+//     setIsLoading(true)
+//     // fetch('https://swapi.dev/api/people/'  )
+//     // .then((resp)=>resp.json())
+//     // .then(
+//     // (res)=>{ setCharacters(res.results)
+//     // setIsLoading(false)}
+//     // )
+//     traerItem()
+//     .then((res) =>{
+//       setCharacters(res)
+//       setIsLoading(false)
+      
+//     })
+    
+//   },[setIsLoading])
+
+//   return(
+//     <Fragment>
+//       {/* <Header />
+//       <ItemListContainer greeting="Buenas peliculas, mejores precios"/> */}
+//       <h1>Swapi</h1>
+      
+//       {
+//         isLoading
+//         ? <h2>Loading...</h2>
+
+//         :characters?.map((people,index)=>{
+//           console.log(people)
+//           return(
+//             <h1 key={index}>{people.name}</h1>
+//           )
+//         })
+//       }
+//     </Fragment> 
+//   )
+// }
+
+// }

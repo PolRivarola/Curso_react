@@ -23,7 +23,7 @@ const ItemCounter = (props) =>{
         <div className="counter-wrap">
             
                 <div className="itemStock">
-                    <p>{props.item}</p>
+                    
                     <p>{`En stock: ${props.stock}`}</p>
                 </div>
                 

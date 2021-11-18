@@ -4,6 +4,7 @@ import ItemCounter from '../ItemCount/ItemCount'
 import ItemList from '../ItemList/ItemList'
 import { products } from '../../itemsArray'
 import { useState } from 'react/cjs/react.development'
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
 
 const ItemListContainer = (props) =>{
     const [items, setItems]= useState([])
@@ -23,8 +24,8 @@ const ItemListContainer = (props) =>{
         <section className="ilc-wrap">
             <h2 className="greet">{props.greeting}</h2>
             <Button styleBtn="btnGeneric"txt="Estoy Listo!"/>
-        <ItemCounter stock="4" item="Balsamo"/>
         <ItemList items={items}/>
+        <ItemDetailContainer/>
         </section>
     )
 }
