@@ -1,5 +1,6 @@
 .itemDetail-wrap{
     width: 90%;
+    height: 80vh;
     display: flex;
     background-color: black;
     margin: 2em auto 0;
@@ -10,13 +11,13 @@
 }
 
 .imgSide img{
-    width: 100%;
+    width: 80%;
     height: 100%;
     
 }
 
 .pSide{
-    width:50%;
+    width:120%;
     display: flex;
     flex-flow: column;
     align-items: center;

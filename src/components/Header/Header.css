@@ -30,7 +30,9 @@
     font-weight: 600;
 }
 
-
+.activeClass{
+    text-decoration:solid underline;
+}
 
 ul{
     display: flex;
