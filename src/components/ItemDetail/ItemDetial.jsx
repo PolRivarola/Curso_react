@@ -14,7 +14,7 @@ const ItemDetail = ({item}) =>{
             <p className="itemInfo">Género: {item.description}</p>
             <p className="itemInfo">Precio: {item.price}</p>
             <div className="detailCounter">
-            <ItemCounter stock={item.stock}/>
+            <ItemCounter stock={item.stock} pelicula={item.title}/>
             </div>
             </div>
             

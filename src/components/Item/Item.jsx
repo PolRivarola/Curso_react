@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import ItemCounter from '../ItemCount/ItemCount'
 import './item.css'
 
 const Item = ({item}) =>{
@@ -9,7 +8,6 @@ const Item = ({item}) =>{
             <img src={item.imgUrl} alt={item.description} />
             <p className="nomYPrecio">{item.title}</p>
             <p className="nomYPrecio">{item.price}</p>
-            <ItemCounter stock={item.stock}/>
         </div>
         </Link>
     )

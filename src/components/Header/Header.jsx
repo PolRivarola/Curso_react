@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import {  NavLink, Link } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget';
 import './Header.css';
 const Header = () => {
@@ -15,7 +15,9 @@ const Header = () => {
     return(
         
         <div className="headNav">
+        <Link to='/'>
         <h1>CineLife</h1>
+        </Link>
         <nav>
           <ul>
             {categories.map((cat) => {

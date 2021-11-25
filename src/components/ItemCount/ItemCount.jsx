@@ -18,6 +18,10 @@ const ItemCounter = (props) =>{
             setNumber(number - 1)
         }
     }
+    
+    const onAdd = (cantidad)=>{
+        console.log(`Usted compró ${cantidad} ejemplar/es de ${props.pelicula}`)
+    }
 
     return(
         <div className="counter-wrap">
@@ -32,6 +36,9 @@ const ItemCounter = (props) =>{
                 <div className="btnItem">
                     <button onClick={inc}>+</button>
                     <button onClick={dis}>-</button>
+                </div>
+                <div>
+                    <button onClick={()=>onAdd(number)}>Agregar</button>
                 </div>    
         </div>
     )

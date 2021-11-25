@@ -1,9 +1,7 @@
-import Button from '../Button/Button'
 import './itemListContainer.css'
 import ItemList from '../ItemList/ItemList'
 import { products } from '../../data/products'
 import { useState } from 'react/cjs/react.development'
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
 import { useParams } from 'react-router'
 import { useEffect } from 'react'
 
