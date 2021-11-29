@@ -5,6 +5,12 @@ import { useParams } from 'react-router'
 const ItemDetailContainer = ()=>{
     const [pelicula, setPelicula] = useState({});
     const {itemID} = useParams()
+    const [irAlCart,setIrAlCart]= useState(false)
+
+    const onAdd = (cantidad)=>{
+        console.log({...pelicula,cantidad:cantidad})
+        setIrAlCart(true)
+    }
 
     console.log(itemID)
         useEffect(()=>{
@@ -24,6 +30,8 @@ const ItemDetailContainer = ()=>{
         <div className="detail-wrap">
                <ItemDetail
                 item={pelicula}
+                onAdd={onAdd}
+                irAlCart={irAlCart}
                 />           
         </div>
             )

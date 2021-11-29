@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import './itemCounter.css'
 
-const ItemCounter = (props) =>{
+const ItemCounter = ({stock,onAdd}) =>{
 
     
-
     const[number,setNumber] = useState(0)
   
     const inc = ()=>{
-        if (props.stock !== 0 && number < props.stock){
+        if (stock !== 0 && number < stock){
             setNumber(number + 1)
         }
     }
@@ -19,16 +18,14 @@ const ItemCounter = (props) =>{
         }
     }
     
-    const onAdd = (cantidad)=>{
-        console.log(`Usted compró ${cantidad} ejemplar/es de ${props.pelicula}`)
-    }
+    
 
     return(
         <div className="counter-wrap">
             
                 <div className="itemStock">
                     
-                    <p>{`En stock: ${props.stock}`}</p>
+                    <p>{`En stock: ${stock}`}</p>
                 </div>
                 
                     <p className="number">{number}</p>
@@ -38,7 +35,7 @@ const ItemCounter = (props) =>{
                     <button onClick={dis}>-</button>
                 </div>
                 <div>
-                    <button onClick={()=>onAdd(number)}>Agregar</button>
+                    <button disabled={number === 0} onClick={()=>onAdd(number)}>Agregar</button>
                 </div>    
         </div>
     )
