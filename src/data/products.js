@@ -8,6 +8,7 @@ export const products = [
       imgUrl:'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/b88f1213c01b76e6eb509b28deaf97c4_97f80ef6-3ea6-4159-a7d5-5fcc0f39f467_500x749.jpg?v=1626963559',
       id:"1",
       category:"Drama",
+      cartCount:0,
       stock:5
       
     },
@@ -17,7 +18,8 @@ export const products = [
         price:'430$',
         imgUrl:'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/f0fa236e71deed3e86221019c88f4231_4b5f1500-ab9b-48e9-a717-9a42935be2d9_500x749.jpg?v=1573652399',
         id:"2",
-        category:"Drama",      
+        category:"Drama", 
+        cartCount:0,     
         stock:6
     },
     {
@@ -27,6 +29,7 @@ export const products = [
         price:'300$',
         category:"Aventura",
         id:"3",
+        cartCount:0,
         stock:12
     },
     {
@@ -36,6 +39,7 @@ export const products = [
         price:'415$',
         category:"Comedia",
         id:"4",
+        cartCount:0,
         stock:11
     },
     {
@@ -45,6 +49,7 @@ export const products = [
         price:'500$',
         category:"Terror",
         id:"5",
+        cartCount:0,
         stock:3
     },
     {
@@ -54,6 +59,7 @@ export const products = [
         price:'200$',
         category:"Acción",
         id:"6",
+        cartCount:0,
         stock:9
     },
     {
@@ -63,6 +69,7 @@ export const products = [
         price:'199$',
         category:"Terror",
         id:"7",
+        cartCount:0,
         stock:2
     },
     {
@@ -72,6 +79,7 @@ export const products = [
         price:'245$',
         category:"Aventura",
         id:"8",
+        cartCount:0,
         stock:3
     },
   ]

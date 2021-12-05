@@ -5,13 +5,14 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer.
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import {Cart} from './components/Cart/Cart'
+import { ProductsProvider } from './context/contextPelis';
 //Es para acomodar las rutas
 
 
 const App = () => {
   return(
     <BrowserRouter>
-      
+      <ProductsProvider>
       <Header />
       <Routes>
         <Route path="/" element= {<ItemListContainer greeting="Buenas peliculas, mejores precios"/>}/>
@@ -20,7 +21,7 @@ const App = () => {
         <Route path="*"  element= {<h1>404 NOT FOUND</h1>}/>     
         <Route path="/cart" element={<Cart/>}></Route>
       </Routes>
-      
+      </ProductsProvider>
     </BrowserRouter> 
   )
 }

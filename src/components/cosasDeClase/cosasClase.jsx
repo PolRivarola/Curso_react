@@ -142,3 +142,53 @@ import { Component } from "react/cjs/react.development";
 // }
 
 // }
+
+const condition = true
+  
+  // if(condition){
+  //   return(
+  //     <h1>True</h1>
+  //   )
+  // }
+  // return(
+  //   <h1>False</h1>
+  // )
+
+  // return(
+  //   <>
+  //   {condition && <h1>True</h1>}
+  //   {!condition && <h1>False</h1>}
+
+  //   </>
+  // )
+
+  // return(
+  //   <>
+  //   {condition ? <h1>Real</h1> : <h1>Not real</h1> }
+  //   </>
+  // )
+
+//   const [text,setText] = useState(false)
+//   const [style,setStyle] = useState('red')
+
+//   return(
+//     <>
+//     {/* <button  
+//       onClick={()=>setText(!text)} className={`${style}`}>
+//       {text? 'soy true': 'soy False'}
+
+//     </button> */}
+//     {/* <button  
+//       onClick={()=>setStyle('green')} className={`${style}`}>
+//       Soy un boton
+
+//     </button> */}
+
+//     <button  
+//       onClick={()=>setText(!text)} 
+//       style={{color: text? 'red': 'green'}}>
+//       Soy un boton
+
+//     </button>
+//     </>
+//   )
