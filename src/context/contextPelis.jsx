@@ -44,6 +44,7 @@ export function ProductsProvider({children}){
     
     const borrarPeli = (product) =>{
         setCartPelis(cartPelis.filter(item => item.id !== product.id))
+        setCantidad(cantidad-product.cartCount)
     }
 
     console.log(cartPelis)
