@@ -1,12 +1,12 @@
 import ItemCounter from '../ItemCount/ItemCount'
 import './itemDetail.css'
 import { Link } from 'react-router-dom'
-import { useAddToCart, useIrAlCart } from "../../context/contextPelis"
+import { useIrAlCart } from "../../context/contextPelis"
 
 
 const ItemDetail = ({item}) =>{
 
-    // const irAlCart = useIrAlCart()
+    const irAlCart = useIrAlCart()
     return(
         <div className="itemDetail-wrap" >
             <div className="imgSide">
@@ -17,21 +17,20 @@ const ItemDetail = ({item}) =>{
             <p className="itemInfo">Género: {item.description}</p>
             <p className="itemInfo">Precio: {item.price}</p>
 
-            {/* {console.log(irAlCart)}    
             {irAlCart ? (
                 <>
                 <Link style={{color:"white"}} to="/cart">Terminar compra</Link>     
                 </>
                 
             ):
-            ( */}
+            (
                 <>
                 <div className="detailCounter">
                 <ItemCounter item={item} stock={item.stock}  pelicula={item.title}/>
                 </div>
                 </>
-            {/* ) */}
-            {/* } */}
+             )} 
+            
             
 
             </div>

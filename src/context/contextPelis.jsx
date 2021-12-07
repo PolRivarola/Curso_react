@@ -7,7 +7,7 @@ export function ProductsProvider({children}){
 
     const [cartPelis, setCartPelis] = useState([])
     const [cantidad,setCantidad] = useState(0)
-    // const [irAlCart,setIrAlCart] = useState(false)
+    const [irAlCart,setIrAlCart] = useState(false)
 
 
     const isOnCart = (product)=>{
@@ -37,9 +37,32 @@ export function ProductsProvider({children}){
             console.log(prodAux)
             setCartPelis([...cartPelis,prodAux])
             setCantidad(cantidad + number)
-            // setIrAlCart(true)
+            setIrAlCart(true)
+            setTimeout(()=>{
+                setIrAlCart(false)
+            },3000)
 
-        }else{alert('Esta peli ya esta en tu carrito!')}
+        }else{
+            const prodAux = 
+            {
+                cartCount: number,
+                category: product.category,
+                description:product.description,
+                id:product.id,
+                imgUrl:product.imgUrl,
+                price:product.price,
+                stock:product.stock,
+                title:product.title    
+            }
+            setCantidad(cantidad - (cartPelis[isOnCart(product)].cartCount) + number)
+            cartPelis.splice(isOnCart(product),1)
+            setCartPelis([...cartPelis,prodAux])
+            setIrAlCart(true)
+            setTimeout(()=>{
+                setIrAlCart(false)
+            },3000)
+
+        }
     }
     
     const borrarPeli = (product) =>{
@@ -49,7 +72,7 @@ export function ProductsProvider({children}){
 
     console.log(cartPelis)
     return(
-        <Products.Provider value={{addToCart,cartPelis,borrarPeli,cantidad,clearCarrito}}>
+        <Products.Provider value={{addToCart,cartPelis,borrarPeli,cantidad,clearCarrito,irAlCart}}>
             {children}
         </Products.Provider>
     )
@@ -75,8 +98,8 @@ export function useClearCarrito(){
     return useContext(Products).clearCarrito       
 }
 
-// export function useIrAlCart(){
-//     return useContext(Products).irAlCart       
-// }
+export function useIrAlCart(){
+    return useContext(Products).irAlCart       
+}
 
 export default Products
