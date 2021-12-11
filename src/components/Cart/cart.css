@@ -37,4 +37,19 @@
 
 .noPelis{
     text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.aqui{
+    background-color: white;
+    padding: .2em;
+    margin-top: .5em;
+    border-radius: 10px;
+    
+    
+}
+.aqui:hover{
+    text-decoration: none;
 }

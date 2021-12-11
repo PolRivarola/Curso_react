@@ -15,7 +15,7 @@ const ItemDetail = ({item}) =>{
             <div className="pSide">
             <p className="itemInfo">Nombre: {item.title}</p>
             <p className="itemInfo">Género: {item.description}</p>
-            <p className="itemInfo">Precio: {item.price}</p>
+            <p className="itemInfo">Precio: {item.price}$</p>
 
             {irAlCart ? (
                 <>

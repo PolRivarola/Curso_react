@@ -7,7 +7,7 @@ const Item = ({item}) =>{
         <div className="item-wrap" >
             <img src={item.imgUrl} alt={item.description} />
             <p className="nomYPrecio">{item.title}</p>
-            <p className="nomYPrecio">{item.price}</p>
+            <p className="nomYPrecio">{item.price}$</p>
         </div>
         </Link>
     )

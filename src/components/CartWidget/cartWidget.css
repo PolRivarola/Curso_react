@@ -1,5 +1,8 @@
 .carrito{
-    width: 30px;
+    width: 80px;
     background-color: var(--main-btn-color);
-    border-radius: 25px;  
+    border-radius: 25px; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
 }

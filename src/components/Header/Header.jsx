@@ -1,4 +1,5 @@
 import {  NavLink, Link } from 'react-router-dom';
+import { useCantidad } from '../../context/contextPelis';
 import CartWidget from '../CartWidget/CartWidget';
 import './Header.css';
 const Header = () => {
@@ -11,6 +12,8 @@ const Header = () => {
     {id: '004', address:'/category/Aventura',text:'Aventura'},
     {id: '006', address:'/category/Drama',text:'Drama'}
   ];
+
+    const cantidad = useCantidad()
 
     return(
         
@@ -29,7 +32,8 @@ const Header = () => {
                 </li>
               )
             })}
-            <li><CartWidget/></li>
+            {(cantidad>0) && <li><CartWidget/></li>}
+            
 
           </ul>
         </nav>
