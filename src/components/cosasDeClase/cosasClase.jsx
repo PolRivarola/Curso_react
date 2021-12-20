@@ -192,3 +192,52 @@ const condition = true
 //     </button>
 //     </>
 //   )
+
+
+
+// if (isOnCart(product) === -1) {
+  //   const prodAux = {
+  //     cartCount: number,
+  //     category: product.category,
+  //     description: product.description,
+  //     id: product.id,
+  //     imgUrl: product.imgUrl,
+  //     price: product.price,
+  //     stock: product.stock,
+  //     title: product.title,
+  //   };
+  //   console.log(prodAux);
+  //   setCartPelis([...cartPelis, prodAux]);
+  //   setCantidad(cantidad + number);
+  //   setTotal(total + product.price * number);
+  //   setIrAlCart(true);
+  //   setTimeout(() => {
+  //     setIrAlCart(false);
+  //   }, 3000);
+  // } else {
+  //   let cant = 0;
+  //   let tot = 0;
+  //   if (
+  //     cartPelis[isOnCart(product)].cartCount + number <=
+  //     cartPelis[isOnCart(product)].stock
+  //   ) {
+  //     cartPelis[isOnCart(product)].cartCount =
+  //       cartPelis[isOnCart(product)].cartCount + number;
+  //     setCantidad(cartPelis[isOnCart(product)].cartCount + number + cantidad);
+  //     cartPelis.map((product) => {
+  //       cant += product.cartCount;
+  //       tot += product.cartCount * product.price;
+  //       console.log(tot);
+  //     });
+  //     setCantidad(cant);
+  //     setTotal(tot);
+  //     setIrAlCart(true);
+  //     setTimeout(() => {
+  //       setIrAlCart(false);
+  //     }, 3000);
+  //   } else {
+  //     alert(
+  //       "Estas intentando poner mas unidades de este producto de las que hay disponibles!"
+  //     );
+  //   }
+  // }

@@ -1,11 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { products } from "../src/data/products";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -16,19 +18,22 @@ const firebaseConfig = {
   projectId: "cinelife-25811",
   storageBucket: "cinelife-25811.appspot.com",
   messagingSenderId: "807770480873",
-  appId: "1:807770480873:web:d5861210f8e7213fa69078"
+  appId: "1:807770480873:web:d5861210f8e7213fa69078",
 };
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
 
+const dataBase = getFirestore();
+const ref = collection(dataBase, "peliculas");
+// products.map((product) => addDoc(ref, product));
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
 
 // ReactDOM.react(elemento de react, elemnto donde se va a renderizar)
 

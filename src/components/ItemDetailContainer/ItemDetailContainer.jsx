@@ -1,33 +1,43 @@
-import { useState,useEffect } from "react"
-import ItemDetail from '../ItemDetail/ItemDetial'
-import {products} from '../../data/products'
-import { useParams } from 'react-router'
-const ItemDetailContainer = ()=>{
-    const [pelicula, setPelicula] = useState({});
-    const {itemID} = useParams()
+import { useState, useEffect } from "react";
+import ItemDetail from "../ItemDetail/ItemDetial";
+import { usePelis } from "../../context/contextPelis";
+import { useParams } from "react-router";
+import {
+  getFirestore,
+  collection,
+  getDoc,
+  doc,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+} from "firebase/firestore";
+const ItemDetailContainer = () => {
+  const [pelicula, setPelicula] = useState({});
+  const { itemID } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+  const dataBase = getFirestore();
+  const refe = doc(dataBase, "peliculas",itemID);
+  const [pelis, setPelis] = useState([]);
 
+  console.log(itemID);
+  useEffect(() => {
+    getDoc(refe)
+      .then((snapShot) => {
+        
+          setPelicula({id:snapShot.id,...snapShot.data()})
+        
+        console.log(pelis)
 
-    console.log(itemID)
-        useEffect(()=>{
+        setIsLoading(false);
+      })
+  }, [itemID]);
 
-            const promiseItems = new Promise((resolve)=>{
-               
-                    resolve(products)
-                
-            });
-            promiseItems.then((res)=> {
-                itemID && setPelicula(res.find((item) => item.id === 
-                itemID))
-            
-            });
-        },[itemID]);
-    return(
-        <div className="detail-wrap">
-               <ItemDetail
-                item={pelicula}
-                 />           
-        </div>
-            )
-}
+  console.log(pelis);
+  return (
+    <div className="detail-wrap">
+      <ItemDetail item={pelicula} />
+    </div>
+  );
+};
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

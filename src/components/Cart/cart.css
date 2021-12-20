@@ -29,6 +29,22 @@
     cursor: pointer;
 }
 
+.formCompra{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.formCompra label{
+    margin-bottom: 2em;
+}
+
+.formCompra button{
+    width: 100px;
+}
+
 .extraCart{
     display: flex;
     flex-flow: column;

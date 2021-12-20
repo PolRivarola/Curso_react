@@ -1,48 +1,63 @@
-import './itemListContainer.css'
-import ItemList from '../ItemList/ItemList'
-import { products } from '../../data/products'
-import { useState } from 'react/cjs/react.development'
-import { useParams } from 'react-router'
-import { useEffect } from 'react'
+import "./itemListContainer.css";
+import ItemList from "../ItemList/ItemList";
+import { useState } from "react/cjs/react.development";
+import { useParams } from "react-router";
+import { useEffect } from "react";
+import { usePelis, useIsLoading } from "../../context/contextPelis";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  doc,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+} from "firebase/firestore";
 
+const ItemListContainer = (props) => {
+  const [items, setItems] = useState([]);
+  let { catID } = useParams();
+  const [pelis, setPelis] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const dataBase = getFirestore();
+  const ref = collection(dataBase, "peliculas");
+  useEffect(() => {
+    getDocs(ref)
 
-const ItemListContainer = (props) =>{
-    const [items, setItems]= useState([])
-    const {catID} = useParams();
-    const [isLoading,setIsLoading] = useState(false)
-
-    useEffect(()=>{
-        const promiseItems = new Promise((resolve,reject)=>{
-            setIsLoading(true)
-
-            setTimeout(()=>{
-                resolve(products)
-            },2000)
-        })
-        promiseItems
-        .then((res)=> {
-            catID ? setItems(res.filter(item => item.category === catID ))
-            : setItems(res);
-
-        })
-        .catch((error)=>{
-            console.log(error)
-        })
-        .finally(()=>{
-            setIsLoading(false)
-        })
-    },[catID])
-    return(
+      .then((snapShot) => {
+        setPelis(
+          snapShot.docs.map((peli) => ({ id: peli.id, ...peli.data() }))
+        );
         
+      })
+      .then(() => {
+        
+        catID
+          ? setItems(pelis.filter((item) => item.category === catID))
+          : setItems(pelis);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [catID]);
+  console.log(pelis)
 
-        <section className="ilc-wrap">
-            {isLoading ? <h2>Cargando...</h2>
-        :<><h2 className="greet">{props.greeting}</h2>
-    <ItemList items={items}/>
-    </>}
-            
-        </section>
-    )
-}
+  return (
+    <section className="ilc-wrap">
+      {isLoading ? (
+        <h2>Cargando...</h2>
+      ) : (
+        <>
+          <h2 className="greet">{props.greeting}</h2>
+          <ItemList items={items} />
+        </>
+      )}
+    </section>
+  );
+};
 
-export default ItemListContainer
+
+export default ItemListContainer;
