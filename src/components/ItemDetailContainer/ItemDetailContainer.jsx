@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     getDoc(refe)
       .then((snapShot) => {
-        
+         
           setPelicula({id:snapShot.id,...snapShot.data()})
         
         console.log(pelis)
