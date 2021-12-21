@@ -17,7 +17,7 @@ export const Cart = () => {
   const cantidad = useCantidad();
   const total = useTotal();
   const [infoOn, setInfoOn] = useState(false);
-  const [infoCliente,setInfoCliente] = useState({email:""})
+  const [infoCliente,setInfoCliente] = useState({email:"pop@",name:"pol",number:"12223"})
   const [compra,setCompra] = useState({})
   const dataBase = getFirestore() 
   const refCompra = collection(dataBase, "compras");
@@ -29,53 +29,22 @@ export const Cart = () => {
       setInfoCliente({...infoCliente, [e.target.name]: e.target.value})
     }
 
-    const checkMail=()=>{
-        if (infoCliente.email.includes("@")){
-            return true
-        }
-        else{
-            return false
-        }
-    };
+    
 
-  const handleSubmit = (e) =>{
-      
-      if( (infoCliente.username != "") && (infoCliente.email != "") && (infoCliente.numero != "")){
-        let mail = checkMail()
-        if(mail){
-        e.preventDefault()
-
-        setCompra({infoCliente,cartPelis,date:new Date(),total})
-        console.log(compra)
-        setEnviar(true)
-        
-      }else{alert("lll")}
-    }else{
-          alert('Completa todos los campos!')
-      }
-      
-  }
-
- 
-  const isFirstRender = useRef(true);
-
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-    } else {
+  const handleSubmit = () =>{
         addDoc(collection(dataBase,"compras"),compra)
         .then(({ id }) => {
             const refMod = doc(dataBase, "compras", id);
             updateDoc(refMod, { buyerId:id});
           })
-        .finally(()=>{
+          .finally(()=>{
             clearCarrito()
-            setInfoOn(false)
-            setEnviar(false)
         })
-        
-    }
-  }, [compra]);
+  }
+
+  useEffect(()=>{
+    setCompra({infoCliente,cartPelis,date:new Date(),total})
+  },[cartPelis])
   
 
     
@@ -104,7 +73,7 @@ export const Cart = () => {
           <button onClick={() => clearCarrito()}>{`Vaciar carrito`}</button>
           <button
         onClick={() => {
-          setInfoOn(true);
+          handleSubmit();
         }}
       >
         Comprar
@@ -122,8 +91,14 @@ export const Cart = () => {
         </div>
         
       )}
+
+    </div>
+  );
+};
+
+
       
-      {infoOn?
+      /* {infoOn?
         <div className="formCompra">
             
           <label>
@@ -143,7 +118,4 @@ export const Cart = () => {
           <button onClick={handleSubmit}>Enviar</button>
           
         </div>:<></>
-      }
-    </div>
-  );
-};
+      } */
