@@ -8,8 +8,8 @@ import {
   getFirestore,
   collection,
   getDocs,
-  doc,
-  addDoc,
+  query,
+  where,
   updateDoc,
   deleteDoc,
 } from "firebase/firestore";
@@ -22,19 +22,17 @@ const ItemListContainer = (props) => {
   const dataBase = getFirestore();
   const ref = collection(dataBase, "peliculas");
   useEffect(() => {
-    getDocs(ref)
+
+    const pelisShow = catID? query(ref,where("category","==",catID))
+                      :ref
+
+    getDocs(pelisShow)
 
       .then((snapShot) => {
         setPelis(
           snapShot.docs.map((peli) => ({ id: peli.id, ...peli.data() }))
         );
         
-      })
-      .then(() => {
-        
-        catID
-          ? setItems(pelis.filter((item) => item.category === catID))
-          : setItems(pelis);
       })
       .catch((error) => {
         console.log(error);
@@ -52,7 +50,7 @@ const ItemListContainer = (props) => {
       ) : (
         <>
           <h2 className="greet">{props.greeting}</h2>
-          <ItemList items={items} />
+          <ItemList items={pelis} />
         </>
       )}
     </section>
