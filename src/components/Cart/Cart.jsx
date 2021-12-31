@@ -40,7 +40,7 @@ export const Cart = () => {
         clearCarrito();
         alert("Lo contactaremos por mail en la brevedad!");
       });
-  };
+  }; 
 
   useEffect(() => {
     setCompra({ infoCliente, cartPelis, date: new Date(), total });
