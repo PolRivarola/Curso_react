@@ -18,4 +18,4 @@ Hola! Esta pagina es el proyecto que desarrolle para el curso de React JS. Se ba
 - Uso de base de datos (Firebase)			
 
 ## GIF demostrativo de funcionamiento
-![AplicacionFuncionando](pruebaGIF.gif)
+![AplicacionFuncionando](src\assets\img\pruebaGIF.gif)
