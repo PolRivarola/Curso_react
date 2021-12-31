@@ -11,7 +11,6 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 
-
 const Products = React.createContext();
 
 export function ProductsProvider({ children }) {
@@ -20,11 +19,10 @@ export function ProductsProvider({ children }) {
   const [irAlCart, setIrAlCart] = useState(false);
   const [total, setTotal] = useState(0);
 
-  
   const [isLoading, setIsLoading] = useState(true);
   const dataBase = getFirestore();
   const refCart = collection(dataBase, "cartPelis");
-  
+
   const isOnCart = (product) => {
     return cartPelis?.findIndex((item) => item.id === product.id);
   };
@@ -57,7 +55,6 @@ export function ProductsProvider({ children }) {
       let totInit = 0;
       let cantInit = 0;
       snapShot.docs.map((peli) => {
-        console.log(peli.data().price);
         cantInit += peli.data().cartCount;
         totInit += peli.data().cartCount * peli.data().price;
       });
@@ -79,7 +76,6 @@ export function ProductsProvider({ children }) {
         });
       setCantidad(cantidad + number);
       setTotal(total + product.price * number);
-      console.log(cartPelis);
       setIrAlCart(true);
       setTimeout(() => {
         setIrAlCart(false);
@@ -111,8 +107,6 @@ export function ProductsProvider({ children }) {
       }
     }
   };
-  console.log(total);
-  console.log(cantidad);
 
   const borrarPeli = (product) => {
     const refFind = cartPelis.find((item) => item.id === product.id);
@@ -124,7 +118,6 @@ export function ProductsProvider({ children }) {
     setTotal(total - product.cartCount * product.price);
   };
 
-  console.log(cartPelis);
   return (
     <Products.Provider
       value={{

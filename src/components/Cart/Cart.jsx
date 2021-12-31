@@ -7,8 +7,14 @@ import {
 } from "../../context/contextPelis";
 import "./cart.css";
 import { Link } from "react-router-dom";
-import { useEffect, useState,useRef } from "react/cjs/react.development";
-import { addDoc, collection,  getFirestore,doc,updateDoc } from "firebase/firestore";
+import { useEffect, useState } from "react/cjs/react.development";
+import {
+  addDoc,
+  collection,
+  getFirestore,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 
 export const Cart = () => {
   const borrarPeli = useBorrarPeli();
@@ -16,40 +22,29 @@ export const Cart = () => {
   const clearCarrito = useClearCarrito();
   const cantidad = useCantidad();
   const total = useTotal();
-  const [infoOn, setInfoOn] = useState(false);
-  const [infoCliente,setInfoCliente] = useState({email:"pop@",name:"pol",number:"12223"})
-  const [compra,setCompra] = useState({})
-  const dataBase = getFirestore() 
-  const refCompra = collection(dataBase, "compras");
-  const [enviar,setEnviar] = useState()
-  const mountedRef = useRef(true) 
+  const [infoCliente, setInfoCliente] = useState({
+    email: "pop@",
+    name: "pol",
+    number: "12223",
+  });
+  const [compra, setCompra] = useState({});
+  const dataBase = getFirestore();
 
+  const handleSubmit = () => {
+    addDoc(collection(dataBase, "compras"), compra)
+      .then(({ id }) => {
+        const refMod = doc(dataBase, "compras", id);
+        updateDoc(refMod, { buyerId: id });
+      })
+      .finally(() => {
+        clearCarrito();
+        alert("Lo contactaremos por mail en la brevedad!");
+      });
+  };
 
-  const handleChange = (e) =>{
-      setInfoCliente({...infoCliente, [e.target.name]: e.target.value})
-    }
-
-    
-
-  const handleSubmit = () =>{
-        addDoc(collection(dataBase,"compras"),compra)
-        .then(({ id }) => {
-            const refMod = doc(dataBase, "compras", id);
-            updateDoc(refMod, { buyerId:id});
-          })
-          .finally(()=>{
-            clearCarrito()
-        })
-  }
-
-  useEffect(()=>{
-    setCompra({infoCliente,cartPelis,date:new Date(),total})
-  },[cartPelis])
-  
-
-    
-   
-
+  useEffect(() => {
+    setCompra({ infoCliente, cartPelis, date: new Date(), total });
+  }, [cartPelis]);
 
   return (
     <div className="cart-wrap">
@@ -72,12 +67,12 @@ export const Cart = () => {
           <h2>{`Total a pagar: ${total}$`}</h2>
           <button onClick={() => clearCarrito()}>{`Vaciar carrito`}</button>
           <button
-        onClick={() => {
-          handleSubmit();
-        }}
-      >
-        Comprar
-      </button>
+            onClick={() => {
+              handleSubmit();
+            }}
+          >
+            Comprar
+          </button>
         </div>
       ) : (
         <div className="noPelis">
@@ -87,18 +82,13 @@ export const Cart = () => {
           <Link className="aqui" to="/">
             <h1>Aqui!</h1>
           </Link>
-          
         </div>
-        
       )}
-
     </div>
   );
 };
 
-
-      
-      /* {infoOn?
+/* {infoOn?
         <div className="formCompra">
             
           <label>

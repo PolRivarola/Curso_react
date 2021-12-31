@@ -31,8 +31,12 @@ const ItemCounter = ({ item, stock }) => {
         <button onClick={inc}>+</button>
         <button onClick={dis}>-</button>
       </div>
-      <div>
-        <button disabled={number === 0} onClick={() => addToCart(item, number)}>
+      <div className="addWrap">
+        <button
+          className="btnAdd"
+          disabled={number === 0}
+          onClick={() => addToCart(item, number)}
+        >
           Agregar
         </button>
       </div>

@@ -31,9 +31,36 @@
 .itemInfo{
     font-weight: bold;
     text-align: center;
-    color: white;
+    color: #CDA987;
     margin-top: .5em;
-    margin-bottom: 2em;
-    font-size: 1.5em;
+    font-size: 1em;
     text-align: center;
+}
+
+.linkDetail{
+    color: white;
+    font-size: 1.5em;
+}
+
+.linkDetail:hover{
+    color: #CDA987;
+    text-decoration: underline;
+}
+
+.linkWrap{
+    display: flex;
+    align-items: center;
+    height: 4em;
+}
+
+.data{
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    width: 80%;
+    font-size: 1.1em;
+    text-align: center;
+}
+.title{
+    font-size: 2em;
 }

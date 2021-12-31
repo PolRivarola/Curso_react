@@ -1,22 +1,14 @@
-import Item from '../Item/Item.jsx'
-import './itemList.css'
+import Item from "../Item/Item.jsx";
+import "./itemList.css";
 
-const ItemList = (  {items}    ) =>{
+const ItemList = ({ items }) => {
+  return (
+    <div className="itemList-wrap">
+      {items.map((product) => (
+        <Item key={product.id} item={product} />
+      ))}
+    </div>
+  );
+};
 
-    return(
-        <div className="itemList-wrap">
-        {items.map((product)=>(
-                
-                <Item
-                key={product.id}
-                item={product}
-                />
-        )
-        )}
-        </div>)
-    }
-    
-    
-
-
-export default ItemList
+export default ItemList;

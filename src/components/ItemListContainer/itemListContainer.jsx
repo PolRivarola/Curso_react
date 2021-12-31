@@ -41,7 +41,6 @@ const ItemListContainer = (props) => {
         setIsLoading(false);
       });
   }, [catID]);
-  console.log(pelis)
 
   return (
     <section className="ilc-wrap">

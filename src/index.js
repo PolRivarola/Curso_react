@@ -6,8 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
-import { products } from "../src/data/products";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,9 +22,6 @@ const firebaseConfig = {
 // Initialize Firebase
 initializeApp(firebaseConfig);
 
-const dataBase = getFirestore();
-const ref = collection(dataBase, "peliculas");
-// products.map((product) => addDoc(ref, product));
 
 ReactDOM.render(
   <React.StrictMode>
